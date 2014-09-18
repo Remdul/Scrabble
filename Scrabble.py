@@ -46,6 +46,7 @@ def wordScan(unscoredWord):
     for l in range(len(runLetters)):
         for m in range(1, len(runLetters)):
             if runLetters[l] != runLetters[m]:
+                gotRun = False
                 break;
             else:
                 gotRun = True

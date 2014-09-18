@@ -9,6 +9,24 @@ def importFile(listWords):
             row = "".join(row)
             listWords.append(row)
 
+def has_dup(sortedWords):
+    return len(sortedWords) != len(set(sortedWords))
+
+def find_dup(sortedWords, listWords):
+    s= set()
+    duplicateWords = set()
+    wordnum = 0
+    for word in sortedWords:
+        wordnum += 1
+        if word in s - duplicateWords:
+            yield word
+            duplicateWords.add(word)
+            print(listWords[wordnum])
+
+        else:
+            s.add(word)
+
+
 def main():
     listWords = []
     sortedWords = []
@@ -18,11 +36,11 @@ def main():
     for i in range(len(listWords)):
         sortedWords.append(''.join(sorted(listWords[i])))
 
-#    sortedWords.sort()
     for i in range(len(sortedWords)):
         print(sortedWords[i])
         print(listWords[i])
-
+    print ("Are there Anagrams:" , has_dup(sortedWords))
+    print ("Anagram words: " , list(find_dup(sortedWords, listWords)))
 
 if __name__ == '__main__':
     main()
