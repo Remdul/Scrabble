@@ -66,6 +66,7 @@ def showHelp():
     print ("3 consecutive vowels is +6")
     print ("If you can match every 4th letter, +10")
     print ("\n\n")
+
 def main():
     showHelp()
     prompt = "Which word would you like to score: "
